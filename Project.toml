@@ -1,0 +1,13 @@
+name = "SourceTraces"
+uuid = "44f0ff4d-9ea3-4144-b81f-e731f850f986"
+authors = ["Per Rutquist"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.8"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
