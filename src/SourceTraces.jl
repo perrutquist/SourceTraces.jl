@@ -5,7 +5,7 @@ export expression_line_spans
 """
     expression_line_spans(src::AbstractString) -> Vector{Pair{Int,Int}}
 
-Return a vector of `Pair`s giving the `(start_line => end_line)` for each
+Return a vector of `UnitRange`s giving the `(start_line : end_line)` for each
 top-level expression parsed from `src` using `Meta.parse(src, i; greedy=true)`
 repeatedly.
 
@@ -14,7 +14,7 @@ character of each expression.
 """
 function expression_line_spans(src::AbstractString)
     newlines = _newline_indices(src)
-    spans = Pair{Int,Int}[]
+    spans = UnitRange[]
 
     n = lastindex(src)
     i = firstindex(src)
@@ -46,7 +46,7 @@ function expression_line_spans(src::AbstractString)
         if istart <= iend
             start_line = _line_for_index(newlines, istart)
             end_line = _line_for_index(newlines, iend)
-            push!(spans, start_line => end_line)
+            push!(spans, start_line:end_line)
         end
 
         i = j
