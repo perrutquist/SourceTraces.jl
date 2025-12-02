@@ -46,10 +46,11 @@ function expression_line_spans(src::AbstractString)
         if istart <= iend
             start_line = _line_for_index(newlines, istart)
             end_line = _line_for_index(newlines, iend)
-            push!(spans, start_line:end_line)
 
-            # If this is a module expression, also parse its contents one level deeper
-            if expr isa Expr && expr.head === :module
+            if !(expr isa Expr && expr.head === :module)
+                push!(spans, start_line:end_line)
+            else
+                # If this is a module expression, parse its contents one level deeper
                 # Heuristically take the lines between the `module` header and the final `end`
                 first_nl_idx = searchsortedfirst(newlines, istart)
                 if first_nl_idx <= length(newlines)
