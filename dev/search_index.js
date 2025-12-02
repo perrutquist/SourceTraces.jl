@@ -1,3 +1,3 @@
 var documenterSearchIndex = {"docs":
-[{"location":"#SourceTraces","page":"Home","title":"SourceTraces","text":"Documentation for SourceTraces.\n\n","category":"section"}]
+[{"location":"#SourceTraces","page":"Home","title":"SourceTraces","text":"Documentation for SourceTraces.\n\n","category":"section"},{"location":"#SourceTraces.expression_line_spans-Tuple{AbstractString}","page":"Home","title":"SourceTraces.expression_line_spans","text":"expression_line_spans(src::AbstractString) -> Vector{Pair{Int,Int}}\n\nReturn a vector of UnitRanges giving the (start_line : end_line) for each top-level expression parsed from src using Meta.parse(src, i; greedy=true) repeatedly.\n\nLine numbers are 1-based and computed from the first and last non-whitespace character of each expression.\n\n\n\n\n\n","category":"method"}]
 }
